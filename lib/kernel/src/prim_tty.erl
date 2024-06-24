@@ -940,7 +940,7 @@ split_cols(N, [Chars | T], Acc, Cnt, Cols, Unicode) when is_list(Chars) ->
 %% of those characters
 split(N, Buff, Unicode) ->
     ?dbg({?FUNCTION_NAME, N, Buff, Unicode}),
-    split(N, Buff, [], 0, 0, Unicode).
+    split(N, lists:flatten(Buff), [], 0, 0, Unicode).
 split(0, Buff, Acc, Chars, Cols, _Unicode) ->
     ?dbg({?FUNCTION_NAME, {Chars, Cols, Acc, Buff}}),
     {Chars, Cols, Acc, Buff};
